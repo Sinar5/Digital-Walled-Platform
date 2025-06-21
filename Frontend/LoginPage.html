@@ -69,7 +69,7 @@
 
             <h1>Login</h1>
 
-            <form action="" method="POST">
+            <form action="db-connect.php" method="POST">
                 <label>Email: </label>
                 <input type="email" id="email" placeholder="email@gmail.com">
                 <br><br>
@@ -91,15 +91,15 @@
             <h1>Sign In</h1>
             
     
-            <form action="" method="POST">
+            <form action="db-connect.php" method="POST">
                 <label>Name:</label>
                 <input type="text" id="name" placeholder="Your name">
                 <br><br>
                 <label>Address: </label>
-                <input type="date" id="address" >
+                <input type="text" id="address" >
                 <br><br>
                 <label>Phone Number: </label>
-                <input type="date" id="phone_number" >
+                <input type="number" id="phone_number" >
                 <br><br>
                 <label>Email: </label>
                 <input type="email" id="email" placeholder="Email@gmail.com">
@@ -107,7 +107,7 @@
                 <label>Password: </label>
                 <input type="password" id="password" placeholder="Enter a strong password">
                 <br><br>
-                <input id="SignIn_btn" type="button" value="Sign In" style="color:rgb(39, 125, 206)">
+                <input id="SignIn_btn" type="submit" value="Sign In" style="color:rgb(39, 125, 206)">
                 <button id="back_btn"onclick="SignInPage()">back</button>
             </form>
              <br>

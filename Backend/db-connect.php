@@ -40,16 +40,44 @@ function update_profile ($conn, $name, $phone_number, $address ) {
    check_query($conn, $sql);
 }
 
-function check_query($conn, $sql)
-{
+function check_query($conn, $sql) {
+
     if ($conn->query($sql) === TRUE) {
-        echo "Record updated successfully";
+        echo "Done!";
     } else {
          echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
-// function to do a deposit 
-// function to do a withdraw
+
+
+function deposit($conn, $amount, $id) {
+    if(countTransactions($conn, $id)>5){
+        echo "You aren't allowed to make more than 5 transactions in a day";
+    }
+    else {
+        $sql = "UPDATE Users SET Balance = Balance + $amount WHERE id = $id";
+    }
+}
+
+function withdraw($conn, $amount, $id) {
+    if(countTransactions($conn, $id)>5){
+        echo "You aren't allowed to make more than 5 transactions in a day";
+    }
+    else {
+        $sql = "UPDATE Users SET Balance = Balance - $amount WHERE id = $id";
+    }
+}
+
+function countTransactions ($conn,$id){
+    $sql = "SELECT COUNT(*) as TransactionCount FROM Transactions WHERE UserId='$id' and TransactionDate = CURDATE()";
+    $result = $conn->query($sql);
+
+    if ($result) {
+        $row = $result->fetch_assoc();
+        return (int)$row['total'];
+    }
+}
+
 // function to fetch the history
 // fucniton to calculate the transaction happened in the same date ( let the limit to 3 transaction per day)
 ?>
