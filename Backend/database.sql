@@ -12,11 +12,12 @@ CREATE DATABASE DigitalWallet
 GO
 
 CREATE TABLE Users( 
+    UserID INT IDENTITY(1,1) PRIMARY KEY,
     Username varchar(26),
     PhoneNumber VARCHAR(20),
     Address VARCHAR(255),
     Balance DECIMAL(10,2),
-    Email VARCHAR (255) PRIMARY KEY,
+    Email VARCHAR (255) ,
     PASSWORD  VARCHAR (8)
 )
 
