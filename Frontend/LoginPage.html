@@ -4,57 +4,7 @@
     <meta charset="UTF-5">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Wallet Platform</title>
-    <style >
-        body { 
-            background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20230616/pngtree-city-skyline-backdrop-with-3d-rendered-rooftop-balcony-image_3604892.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
 
-        }
-        section{
-            background-color: rgb(159, 192, 211);
-            font-family: Arial, sans-serif;
-            width: 35vw;
-            left: 35vw; 
-            border-radius: 7vw 0vw 7vw 0vw;
-            text-align: center; 
-        }
-        h1{
-            font-weight: bold;
-            color: rgb(39, 125, 206);
-            margin-top: 2.5vw;
-            margin-bottom: 2.7vw;
-        }
-        label{
-            color: rgb(39, 125, 206)
-        }
-        button{
-            margin-top: 0.3vw;
-            margin-bottom: 0.7vw;
-            color: rgb(39, 125, 206);
-            display: inline-block;
-        }
-        input, button {
-            border-radius:0.5vw;
-            border-color: transparent;
-        }
-        p{
-            color: rgb(39, 125, 206);
-            display: inline;
-        }
-        #welcome_page button{
-            font-size: 16px;
-            border-color: transparent;
-            border-radius: 15%;
-            margin: 0.5vw;
-            
-        }
-    </style>
 </head>
 <body>
     <section>
@@ -64,9 +14,7 @@
             <button onclick="SignInPage()">Sign in</button>
             <button onclick="LoginPage()">Login</button><br><br>
         </div>
-        <div id="login_page" style="display:none">
-            
-
+        <div id="login_page" >
             <h1>Login</h1>
 
             <form action="db-connect.php" method="POST">

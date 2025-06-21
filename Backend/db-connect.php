@@ -18,11 +18,12 @@ function Create_profile($conn) {
     $password = $_POST['password'];
 
     $sql_user = "INSERT INTO Users (Username, PhoneNumber, Address, Email, Password, Balance)
-    VALUES ($name, $phone_number, $address, $email, $password, 0 )";
+    VALUES ('$name', '$phone_number', '$address', '$email', '$password', 0 )";
 
     $sql_transaction = "INSERT INTO Transactions (Useremail, TransactionDate, TransactionType, Amount, Balance)
-    VAlUES ($email, null , null ,0 , 0 )";
+    VAlUES ('$email', null , null ,0 , 0 )";
 
+    // TO-DO: use prepared statement for security! 
 
    Check_query($conn, $sql_user);
    Check_query($conn, $sql_transaction);
@@ -30,9 +31,14 @@ function Create_profile($conn) {
 
 function Get_profile_info($conn, $id) {
     $sql = "SELECT * FROM Users WHERE UserId = '$id' ";
-}
+    Check_query($conn, $sql);
+    $result = $conn->query($sql);
 
-// function to update profile info
+    
+    foreach ($result as $row){
+        // print profile info 
+    }
+}
 
 function Update_profile ($conn, $name, $phone_number, $address ) {
     $sql = "UPDATE Users SET Username='$name', PhoneNumber='$phone_number', Address='$address' WHERE id=2";
@@ -51,16 +57,16 @@ function Check_query($conn, $sql) {
 
 function Transaction ($conn, $id, $amount, $type) {
 
-    if(SumOfTransactions($conn, $id)>1000){
-        echo "You aren't allowed to make more than 5 transactions in a day";
-    } 
-    else if ($type == TRUE){
+    if ($type == TRUE){
         $sql_user = "UPDATE Users SET Balance = Balance + $amount WHERE Userid = $id";
         Check_query($conn, $sql_user);
         $sql_transaction = "UPDATE Transactions SET Amount='$amount', TransactionType='$type', TransactionDate='CURDATE()' WHERE Userid = $id";
         Check_query($conn, $sql_transaction);
 
     }
+    else  if(SumOfTransactions($conn, $id)>1000){
+        echo "You aren't allowed to withdraw anymore today. Try again tomorrow.";
+    } 
     else {
         $sql_user = "UPDATE Users SET Balance = Balance - $amount WHERE id = $id";
         Check_query($conn, $sql_user);
@@ -79,11 +85,9 @@ function SumOfTransactions ($conn,$id):int {
     $Transactions = $result_withdraws['total']- $result_deposits['total'];
     return $Transactions;
     
-    // should i only return the amount of withdraws and the user should not withdraw more than 1000$ per day?
-   
+    // should i only return the amount of withdraws and the user should not withdraw more than 1000$ per day
 }
 
-// function to fetch the history
 function Get_History($conn, $id) {
     $sql = "SELECT * FROM Transactions WHERE Userid = $id";
     $result = $conn->query($sql); 
@@ -92,6 +96,4 @@ function Get_History($conn, $id) {
         //print result as a check 
     }
 }
-// fucniton to calculate the transaction happened in the same date ( let the limit to 3 transaction per day)
 ?>
-
