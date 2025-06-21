@@ -49,33 +49,33 @@ function check_query($conn, $sql) {
     }
 }
 
+function transaction ($conn, $id, $amount, $type) {
 
-function deposit($conn, $amount, $id) {
-    if(countTransactions($conn, $id)>5){
+    if(SumOfTransactions($conn, $id)>1000){
         echo "You aren't allowed to make more than 5 transactions in a day";
+    } 
+    else if ($type == TRUE){
+        $sql_user = "UPDATE Users SET Balance = Balance + $amount WHERE Userid = $id";
+        check_query($conn, $sql_user);
+        $sql_transaction = "UPDATE Transactions SET Amount='$amount', TransactionType='$type', TransactionDate='CURDATE()' WHERE Userid = $id";
+        check_query($conn, $sql_transaction);
+
     }
     else {
-        $sql = "UPDATE Users SET Balance = Balance + $amount WHERE id = $id";
+        $sql_user = "UPDATE Users SET Balance = Balance - $amount WHERE id = $id";
+        check_query($conn, $sql_user);
+        $sql_transaction = "UPDATE Transactions SET Amount='$amount', TransactionType='$type', TransactionDate='CURDATE()' WHERE Userid = $id";
+        check_query($conn, $sql_transaction);
     }
 }
 
-function withdraw($conn, $amount, $id) {
-    if(countTransactions($conn, $id)>5){
-        echo "You aren't allowed to make more than 5 transactions in a day";
-    }
-    else {
-        $sql = "UPDATE Users SET Balance = Balance - $amount WHERE id = $id";
-    }
-}
+function SumOfTransactions ($conn,$id){
 
-function countTransactions ($conn,$id){
-    $sql = "SELECT COUNT(*) as TransactionCount FROM Transactions WHERE UserId='$id' and TransactionDate = CURDATE()";
-    $result = $conn->query($sql);
-
-    if ($result) {
-        $row = $result->fetch_assoc();
-        return (int)$row['total'];
-    }
+    // should calculate the deposits and the withdraws then find the difference between them
+    // the balance should not decrease more than 1000$ per day 
+    // should return the amount of withdraws - deposits 
+    // or i should only return the amount of withdraws and the user should not withdraw more than 1000$ per day
+   
 }
 
 // function to fetch the history

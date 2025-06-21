@@ -22,12 +22,13 @@ CREATE TABLE Users(
 )
 
 CREATE TABLE Transactions(
+    UserID INT,
     TransactionID INT IDENTITY(1,1) PRIMARY KEY,
     UserEmail VARCHAR(255), 
     TransactionDate DATE,
     TransactionType Boolean, -- true for deposit, false for withdraw
     Amount DECIMAL(10,2),
     Balance DECIMAL(10,2),
-    FOREIGN KEY (UserEmail) REFERENCES users(Email),
-    FOREIGN KEY (Balance) REFERENCES useres(Balance),
+    FOREIGN KEY (UserID) REFERENCES users(UserID),
+    
 )
