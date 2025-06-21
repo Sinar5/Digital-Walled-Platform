@@ -6,35 +6,52 @@
     <title>Digital wallet platform</title>
 
     <style>
-        body { 
-            background-color: rgb(61, 95, 61);
-            margin:0; 
-            height: 100vh;
-           
+        :root{
+            --main_color: rgb(19, 22, 53);
+            --secondary_color: rgb(248, 232, 161);
         }
-        #Circle{
-            background-color: rgb(241, 241, 170);
-
-            border-radius: 50% ;
-
-            height: 46.3vw;
-            width : 100vw;
-
+        body{
+            margin:0; 
+            width:100vw;
+        }
+        #welcome_page { 
+            background-color: var(--main_color);
+            height: 100vh;
+        }
+        #login_page {
+            background-color :var(--secondary_color);
+            height: 100vh;
+            overflow: hidden;
+        }
+        .Circle{
+            height: 100%;
+            
+            margin-top: 0.2vw;
             position: absolute;
-            left:-45vw;
+        }
+        #Circle1 {
+            width : 65vw;
+            border-radius: 0 50% 50% 0;
+            background-color: var(--secondary_color);;
+        }
+        #Circle2 {
+            width : 35vw;
+            background-color:var(--main_color);
+            left:65vw;
+            border-radius: 50% 0 0 50%  ;
         }
 
         #login_btn, #signin_btn {
 
             display: inline-block;
-            color:rgb(61, 95, 61);
-            background-color: rgb(241, 241, 170);
+            color:var(--main_color);
+            background-color:var(--secondary_color);;
 
             width: 10vw; 
             height: 5vw;
 
             position:absolute; 
-            left:120vw;
+            left:77vw;
             text-align: center;
 
             border-radius: 25% 0 25% 0 ;
@@ -46,21 +63,45 @@
         #signin_btn{
            top:28vw;
         }
-        #Circle h1{
+        .Circle h1{
             position:absolute;
-            top:19vw; 
-            left:50vw; 
-            color:rgb(61, 95, 61);
+            top:18vw; 
+            left:10vw; 
+            color:var(--main_color);
             font-weight: bold;
             font-size: 40px;
         }
     </style>
 </head>
 <body>
-    <div id="Circle">
-        <h1>Welcome to our <br>Digital Wallet Platform</h1>
+    <section id="welcome_page">
+        <div class="Circle" id="Circle1">
+            <h1>Welcome to our <br>Digital Wallet Platform</h1>
+        </div>
         <div id="login_btn"><p>Login</p></div>
         <div id="signin_btn"><p>Sign In</p></div>
-    </div>
+    </section>
+    <section id="login_page">
+        <div class="Circle" id="Circle2">
+            <h1>Login</h1>
+        </div>
+        <div id="login_page" style="display:none">
+            
+            <form action="" method="POST">
+                <label>Email: </label>
+                <input type="email" id="email" placeholder="email@gmail.com">
+                <br><br>
+                <label>Password: </label>
+                <input type="password" id="password" placeholder="enter a strong password">
+                <br><br>
+                <input id="login_btn" type="button" value="Login" style="color:rgb(39, 125, 206)">
+                <button id="back_btn"onclick="LoginPage()">back</button>
+            </form>
+            <br>
+            
+            <p>You don't have an account?</p>
+            <button onclick="moveBetweenDivs()">Sign in</button><br><br>
+        </div>
+    </section>
 </body>
 </html>
