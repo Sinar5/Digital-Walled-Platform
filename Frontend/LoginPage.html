@@ -39,7 +39,7 @@
             color: rgb(39, 125, 206);
             display: inline-block;
         }
-        input {
+        input, button {
             border-radius:0.5vw;
             border-color: transparent;
         }
@@ -48,7 +48,7 @@
             display: inline;
         }
         #welcome_page button{
-            font-size: 18px;
+            font-size: 16px;
             border-color: transparent;
             border-radius: 15%;
             margin: 0.5vw;
@@ -66,6 +66,7 @@
         </div>
         <div id="login_page" style="display:none">
             
+
             <h1>Login</h1>
 
             <form action="" method="POST">
@@ -75,15 +76,18 @@
                 <label>Password: </label>
                 <input type="password" id="password" placeholder="enter a strong password">
                 <br><br>
-                <input id="login_btn" type="button" value="Login" style="color:rgb(39, 125, 206)"></button>
+                <input id="login_btn" type="button" value="Login" style="color:rgb(39, 125, 206)">
+                <button id="back_btn"onclick="LoginPage()">back</button>
             </form>
             
             <br>
+            
             <p>You don't have an account?</p>
             <button onclick="moveBetweenDivs()">Sign in</button><br><br>
         </div>
         <div id="signin_page" style="display:none">
 
+            
             <h1>Sign In</h1>
             
     
@@ -100,7 +104,8 @@
                 <label>Password: </label>
                 <input type="password" id="password" placeholder="Enter a strong password">
                 <br><br>
-                <input id="SignIn_btn" type="button" value="Sign In" style="color:rgb(39, 125, 206)"></button>
+                <input id="SignIn_btn" type="button" value="Sign In" style="color:rgb(39, 125, 206)">
+                <button id="back_btn"onclick="SignInPage()">back</button>
             </form>
              <br>
             <p>You already have an account?</p>
