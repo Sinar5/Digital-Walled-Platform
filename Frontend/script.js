@@ -1,4 +1,3 @@
-
 function toggleDivs(div1, div2) {
 if (div1.style.display === "none") {
     div1.style.display = "block";
