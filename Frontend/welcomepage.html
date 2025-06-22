@@ -6,16 +6,15 @@
     <title>Digital Wallet Platform</title>
 </head>
 <body>
-    
-    <section id="welcome_page" style="display: none;">
+    <section id="welcome_page" >
         <h1>Welcome to the Digital Wallet Platform</h1>
         <p>Your one-stop solution for managing digital transactions securely and efficiently.</p>
-        <button onclick= "openSection('login_page')">Login</button>
-        <button onclick= "openSection('register_page')">Register</button>
+        <button onclick= "location.href='#login_page'">Login</button>
+        <button onclick= "location.href='register_page'">Register</button>
         
     </section>
 
-    <section id="login_page" style="display:none;">
+    <section id="login_page" >
         <h2>Login</h2>
         <form action="/login" method="post">
             <label for="email">Email:</label>
@@ -26,11 +25,11 @@
             <br>
             <button type="submit">Login</button>
         </form>
-        <p>Don't have an account? <button onclick="openSection('register_page')">Register here</button></p>
+        <p>Don't have an account? <button onclick="location.href='register_page'">Register here</button></p>
 
     </section>
 
-    <section id="register_page" style="display:none;">
+    <section id="register_page" >
         <h2>Register</h2>
         <form action="/register" method="post">
             <lable for="username">Username:</lable>
@@ -50,7 +49,7 @@
             <br>
             <button type="submit">Register</button>
         </form>
-        <p>Already have an account? <button onclick="openSection('login_page')">Login here</button></p>
+        <p>Already have an account? <button onclick="location.href='login_page'">Login here</button></p>
     </section>
 </body>
 </html>
