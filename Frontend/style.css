@@ -109,6 +109,62 @@ h2{
     margin: 3vw 2vw 0 2vw;
 }
 
+#update_profile{
+    width: 30vw;
+    height: 22vw;
+    padding: 2vw 4vw ;
+    margin-top: 10vw;
+    border: 1px solid var(--main_color);
+    border-radius: 5vw;
+    background-color: var(--secondary_color);
+    color: var(--main_color);
+    display: none;
+    z-index: 1000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+
+}
+#update_profile label{
+    display: inline-block;
+    width: 8vw;
+    text-align: left;
+    font-size: 1.2vw;
+}
+#update_profile input{
+    width: 20vw;
+    color: var(--secondary_color);
+}
+#update_profile button{
+    display: inline-block;
+    width:12vw;
+    height:3vw;
+    background-color: var(--main_color);
+    color: var(--secondary_color);
+    border:none;
+    border-radius: 0.5vw;
+    margin: 1vw 0 0 2vw;
+}
+
+.form-row {
+
+    display: flex;
+    align-items: center;
+    margin-bottom: 1vw;
+    justify-content: flex-start;
+}
+
+#logout_page {
+    width: 30vw;
+    height: 15vw;
+    padding: 2vw;
+    margin-top: 12vw;
+    border: 1px solid var(--main_color);
+    border-radius: 5vw;
+    background-color: var(--secondary_color);
+    color: var(--main_color);
+    display: none;
+    z-index: 1500;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
 #logout_page label{
     display: block;
     margin-top: 3vw;
