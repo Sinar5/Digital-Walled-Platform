@@ -180,3 +180,35 @@ h2{
     border-radius: 0.5vw;
     margin: 3vw 0;
 }
+    
+section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+section table th, section table td {
+    border: 1px solid var(--secondary_color);
+    color: var(--secondary_color);
+    padding: 0.416vw;
+    background-color: var(--main_color);
+    text-align: left;
+}
+
+
+section form input, section form select {
+    
+    padding: 0.416vw;
+    margin-bottom: 1vw;
+    border: 1px solid var(--secondary_color);
+    border-radius: 4px;
+    background-color: var(--main_color);
+}
+
+section button {
+    padding: 0.52vw 0.78vw;
+    background-color: var(--main_color);
+    color: var(--secondary_color);
+    border-radius: 0.5vw;
+    margin: 1vw; 
+    cursor: pointer;
+    border: none;
+}
