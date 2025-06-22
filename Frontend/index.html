@@ -124,6 +124,7 @@
     </section>
 
     <section id="update_profile" style="display:none;">
+        <h2>Update Profile</h2>
         <form action="/update_profile" method="post">
             <label for="profile_username">Username:</label>
             <input type="text" id="profile_username" name="profile_username">
@@ -140,6 +141,13 @@
     </section>
 
 
+    <section id="logout_page" style="display:none;">
+        <h2>Log Out</h2>
+        <form action="/log_out" method="post">
+            <label id="logout">Are you sure you want to log out?</label>
+            <button type="submit">Yes</button>
+            <button type="submit">No</button>
+        </form>
     </section>
 </body>
 </html>

@@ -17,6 +17,16 @@ body{
     text-align: center;
 }
 
+section {
+    margin-top:2vw; 
+    background-color: var(--secondary_color);
+    color: var(--main_color);
+}
+
+h2{
+    margin-top:1vw;
+}
+
 #nav_bar {
     background-color: var(--secondary_color);
     position: fixed;
@@ -38,7 +48,6 @@ body{
     display: block;
     position: fixed;
 }
-
 #logo div{
     width: 3vw;
     height: 0.3vw;
@@ -71,17 +80,6 @@ body{
     margin-top: -2vw;
 }
 
-h1{
-    margin-bottom:5vw;
-    font-size: 3vw;
-}
-
-section {
-    margin-top:2vw; 
-    background-color: var(--secondary_color);
-    color: var(--main_color);
-}
-
 #settings_page {
     width: 25vw;
     height: 20vw;
@@ -95,13 +93,11 @@ section {
     z-index: 1000;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
 #settings_page.show {
     display: block;
     transform: translateY(0);
     opacity: 1;
 }
-
 #settings_page button{
     display: block;
     width:21vw;
@@ -113,3 +109,18 @@ section {
     margin: 3vw 2vw 0 2vw;
 }
 
+#logout_page label{
+    display: block;
+    margin-top: 3vw;
+    font-size: 1.5vw;
+}
+#logout_page button{
+    display: inline-block;
+    width:12vw;
+    height:3vw;
+    background-color: var(--main_color);
+    color: var(--secondary_color);
+    border:none;
+    border-radius: 0.5vw;
+    margin: 3vw 0;
+}
