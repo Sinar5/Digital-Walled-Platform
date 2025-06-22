@@ -43,7 +43,7 @@ h2 {
 }
 #main_page {
     width: 100%;
-    height: 61vh;
+    height: 90vh;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -226,9 +226,68 @@ section i {
     margin: 3vw 0;
 }
 
-section table {
-    width: 100%;
+section form input ,section form select {
+    padding: 0.416vw;
+    margin-bottom: 1vw;
+    border: 1px solid var(--secondary_color);
+    border-radius: 4px;
+    background-color: var(--main_color);
+    color: var(--secondary_color);
+}
+section button {
+    padding: 0.52vw 0.78vw;
+    background-color: var(--main_color);
+    color: var(--secondary_color);
+    border-radius: 0.5vw;
+    margin: 1vw;
+    cursor: pointer;
+    border: none;
+}
+
+#transaction_page {
+    display: flex;
+    gap:10vw;
+    margin-left:0; 
+    width: 100vw;
+    height: auto;
+    padding:15vw;
+    background-color: var(--secondary_color);
+    color: var(--main_color);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#transaction_page input{
+    width:20vw;
+    height:2vw;
+}
+#transaction_page select{
+    width:20vw;
+    height:2vw;
+    margin-left: 1.5vw;
+}
+
+#transaction_history_page {
+    width: 100vw;
+    height: auto;
+    margin-top: 15vw;
+    background-color: var(--main_color);
+    color: var(--secondary_color);
+}
+#transaction_history_page h2{
+    color: var(--secondary_color)
+}
+
+#transaction_history_page table {
+    width: 70vw;
+    margin-left: 15vw;
     border-collapse: collapse;
+}
+
+#transaction_history_page button{
+    margin-top:5vw;
+    background-color: var(--secondary_color);
+    color:var(--main_color)
 }
 
 section table th,
@@ -241,34 +300,18 @@ section table td {
 }
 
 
-section form input,
-section form select {
-
-    padding: 0.416vw;
-    margin-bottom: 1vw;
-    border: 1px solid var(--secondary_color);
-    border-radius: 4px;
-    background-color: var(--main_color);
-}
-
-section button {
-    padding: 0.52vw 0.78vw;
-    background-color: var(--main_color);
-    color: var(--secondary_color);
-    border-radius: 0.5vw;
-    margin: 1vw;
-    cursor: pointer;
-    border: none;
-}
-
-#transaction_page, #transaction_history , #profile_page {
+#profile_page {
+    display: flex;
+    flex-direction: column;
     width: 100vw;
-    height: 50vw;
-    padding: 2vw 4vw;
+    height: auto;
+    padding: 12vw;
     margin-top: 10vw;
-    border: 1px solid var(--main_color);
     background-color: var(--secondary_color);
     color: var(--main_color);
-    z-index: 1000;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+#profile_page p{
+    font-size: 1.5vw;
+    padding-top: 2vw;
+    margin-left: 0;
 }

@@ -1,174 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Wallet Platform</title>
     <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link href="../Frontend/style.css" rel="stylesheet">
-    <script src="../Frontend/script.js"></script> 
+    <script src="../Frontend/script.js"></script>
 
 </head>
 
 <body>
     <div class="container">
-    <section id="welcome_page" style="display: none;">
-        <h1>Welcome to the Digital Wallet Platform</h1>
-        <p>Your one-stop solution for managing digital transactions securely and efficiently.</p>
-        <button onclick= "openSection('login_page')">Login</button>
-        <button onclick= "openSection('register_page')">Register</button>
-        
-    </section>
+        <section id="main_page">
+            <section id="nav_bar">
+                <div id="logo">
+                    <i class='bxr  bx-cog' onclick="openSection('settings_page')"></i>
+                </div>
 
-    <section id="login_page" style="display:none;">
-        <h2>Login</h2>
-        <form action="/login" method="post">
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email" required>
-            <br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <br>
-            <button type="submit">Login</button>
-        </form>
-        <p>Don't have an account? <button onclick="openSection('register_page')">Register here</button></p>
+                <h1>${username}</h1>
+                <div id="balance_display">
+                    <p id="balance_label">Balance:</p><br><br>
+                    <p id="balance_amount">${Balance}</p>
+                </div>
+            </section>
 
-    </section>
-
-    <section id="register_page" style="display:none;">
-        <h2>Register</h2>
-        <form action="/register" method="post">
-            <lable for="username">Username:</lable>
-            <input type="text" id="username" name="username" required>
-            <br>
-            <lable for="phoneNumber">Phone Number:</lable>
-            <input type="text" id="phoneNumber" name="phoneNumber" required>
-            <br>
-            <label for="Address">Address:</label>
-            <input type="text" id="Address" name="Address" required>
-            <br>
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email" required>
-            <br>
-            <label for="new_password">Password:</label>
-            <input type="password" id="new_password" name="new_password" required>
-            <br>
-            <button type="submit">Register</button>
-        </form>
-        <p>Already have an account? <button onclick="openSection('login_page')">Login here</button></p>
-    </section>
-
-    <section id="main_page">
-        <section id="nav_bar">
-            <div id="logo">
-                <i class='bxr  bx-cog' onclick="openSection('settings_page')"></i>
-            </div>
-            
-            <h1>${username}</h1>
-            <div id="balance_display">
-                <p id="balance_label" >Balance:</p><br><br>
-                <p id="balance_amount">${Balance}</p>
-            </div>
+            <section id="main_content">
+                <div id="transaction">
+                    <a href="#transaction_page"><i class='bxr  bx-paper-plane' onclick=''></i></a>
+                </div>
+                <div id="history">
+                    <a href="#transaction_history_page"><i class='bxr  bx-history'></i></a>
+                </div>
+                <div id="profile">
+                    <a href="#profile_page"><i class='bxr  bx-user'></i></a>
+                </div>
+            </section>
         </section>
 
-        <section id="main_content">
-            <div id="transaction">
-                <a href="#transaction_page"><i class='bxr  bx-paper-plane' onclick=''></i></a>
-            </div>
-            <div id="history">
-                <a href="#transaction_history_page"><i class='bxr  bx-history'></i></a>
-            </div>
-            <div id="profile">
-                <a href="#profile_page"><i class='bxr  bx-user' ></i></a>
-            </div>
+        <section id="transaction_page">
+            <h2>Transactions</h2>
+            <form action="/transaction" method="post">
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" required>
+                <br>
+                <label for="type">Type:</label>
+                <select id="type" name="type" required>
+                    <option value="0">Withdraw</option>
+                    <option value="1">Deposit</option>
+                </select>
+                <br>
+                <button type="submit">Save transaction</button>
+            </form>
+
         </section>
-    </section>
 
-    <section id="transaction_page" >
-        <h2>Transactions</h2>
-        <form action="/transaction" method="post">
-            <label for="amount">Amount:</label>
-            <input type="number" id="amount" name="amount" required>
-            <br>
-            <label for="type">Type</label>
-            <select id="type" name="type" required>
-                <option value="0">Withdraw</option>
-                <option value="1">Deposit</option>
-            </select>
-            <br>
-            <button type="submit">Save transaction</button>
-        </form>
-    
-    </section>
+        <section id="transaction_history_page">
+            <h2>Transaction History</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Date</th>
+                        <th>Balance</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Transaction history will be populated here -->
+                </tbody>
+            </table>
+            <a href="#transaction_page"><button>Make a new transaction</button></a>
+        </section>
 
-    <section id="transaction_history_page" >
-        <h2>Transaction History</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Username</th>
-                    <th>Date</th>
-                    <th>Balance</th>
-                    <th>Type</th>
-                    <th>Amount</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Transaction history will be populated here -->
-            </tbody>
-        </table>
-        <button onclick="openSection('transaction_page')">Make a new transaction</button>
-    </section>
+        <section id="profile_page">
+            <h2>Your Profile</h2>
+            <p>
+                Username: <span id="profile_username"> ${username}</span><br>
+                Email: <span id="profile_email">${email}</span><br>
+                Balance: <span id="profile_balance">${Balance}</span><br>
+                Phone Number: <span id="profile_phone">${phoneNumber}</span><br>
+                Address: <span id="profile_address">${Address}</span><br>
+            </p>
 
-    <section id="profile_page" >
-        <h2>Your Profile</h2>
-        <p>
-            Username: <span id="profile_username"> ${username}</span><br>
-            Email: <span id="profile_email">${email}</span><br>
-            Balance: <span id="profile_balance">${Balance}</span><br>
-            Phone Number: <span id="profile_phone">${phoneNumber}</span><br>
-            Address: <span id="profile_address">${Address}</span><br>
-        </p>
-                
-    </section>
- 
-    <section id="settings_page">
-        <h2>Settings</h2> 
-        <button onclick="openSection('update_profile')">Update Profile</button>
-        <button onclick="openSection('logout_page')">Log Out</button>
+        </section>
 
-    </section>
+        <section id="settings_page">
+            <h2>Settings</h2>
+            <button onclick="openSection('update_profile')">Update Profile</button>
+            <button onclick="openSection('logout_page')">Log Out</button>
 
-    <section id="update_profile" >
-        <h2>Update Profile</h2>
-        <form action="/update_profile" method="post">
-            <div class="form-row">
-                <label for="profile_username">Username:</label>
-                <input type="text" id="profile_username" name="profile_username">
-            </div>
-            <div class="form-row">
-                <label for="phoneNumber">Phone Number:</label>
-                <input type="text" id="phoneNumber" name="phoneNumber">
-            </div>
-            <div class="form-row">
-                <label for="Address">Address:</label>
-                <input type="text" id="Address" name="Address">
-            </div>
+        </section>
 
-            <button type="submit">Update Profile</button>
-        </form>
-    </section>
+        <section id="update_profile">
+            <h2>Update Profile</h2>
+            <form action="/update_profile" method="post">
+                <div class="form-row">
+                    <label for="profile_username">Username:</label>
+                    <input type="text" id="profile_username" name="profile_username">
+                </div>
+                <div class="form-row">
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="text" id="phoneNumber" name="phoneNumber">
+                </div>
+                <div class="form-row">
+                    <label for="Address">Address:</label>
+                    <input type="text" id="Address" name="Address">
+                </div>
+
+                <button type="submit">Update Profile</button>
+            </form>
+        </section>
 
 
-    <section id="logout_page" >
-        <h2>Log Out</h2>
+        <section id="logout_page">
+            <h2>Log Out</h2>
 
-        <form action="/log_out" method="post">
-            <label id="logout">Are you sure you want to log out?</label>
-            <button type="submit">Yes</button>
-            <button type="submit">No</button>
-        </form>
-    </section>
+            <form action="/log_out" method="post">
+                <label id="logout">Are you sure you want to log out?</label>
+                <button type="submit">Yes</button>
+                <button type="submit">No</button>
+            </form>
+        </section>
     </div>
 </body>
+
 </html>
