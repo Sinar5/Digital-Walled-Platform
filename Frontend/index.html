@@ -16,7 +16,7 @@
         <section id="main_page">
             <section id="nav_bar">
                 <div id="logo">
-                    <i class='bxr  bx-cog' onclick="openSection('settings_page')"></i>
+                    <i class='bxr  bx-cog' onclick="toggleSettings()"></i>
                 </div>
 
                 <h1>${username}</h1>
@@ -28,13 +28,16 @@
 
             <section id="main_content">
                 <div id="transaction">
-                    <a href="#transaction_page"><i class='bxr  bx-paper-plane' onclick=''></i></a>
+                    <a href="#transaction_page"><i class='bxr  bx-paper-plane'></i></a>
+                    <h3>Transaction</h3>
                 </div>
                 <div id="history">
                     <a href="#transaction_history_page"><i class='bxr  bx-history'></i></a>
+                    <h3>History</h3>
                 </div>
                 <div id="profile">
                     <a href="#profile_page"><i class='bxr  bx-user'></i></a>
+                    <h3>Profile</h3>
                 </div>
             </section>
         </section>
@@ -87,43 +90,45 @@
 
         </section>
 
-        <section id="settings_page">
-            <h2>Settings</h2>
-            <button onclick="openSection('update_profile')">Update Profile</button>
-            <button onclick="openSection('logout_page')">Log Out</button>
+        <div id="overlay">
+            <section id="settings_page">
+                <h2>Settings</h2>
+                <button onclick="toggleUpdateProfile()">Update Profile</button>
+                <button onclick="toggleLogout()">Log Out</button>
 
-        </section>
+            </section>
 
-        <section id="update_profile">
-            <h2>Update Profile</h2>
-            <form action="/update_profile" method="post">
-                <div class="form-row">
-                    <label for="profile_username">Username:</label>
-                    <input type="text" id="profile_username" name="profile_username">
-                </div>
-                <div class="form-row">
-                    <label for="phoneNumber">Phone Number:</label>
-                    <input type="text" id="phoneNumber" name="phoneNumber">
-                </div>
-                <div class="form-row">
-                    <label for="Address">Address:</label>
-                    <input type="text" id="Address" name="Address">
-                </div>
+            <section id="update_profile">
+                <h2>Update Profile</h2>
+                <form action="/update_profile" method="post">
+                    <div class="form-row">
+                        <label for="profile_username">Username:</label>
+                        <input type="text" id="profile_username" name="profile_username">
+                    </div>
+                    <div class="form-row">
+                        <label for="phoneNumber">Phone Number:</label>
+                        <input type="text" id="phoneNumber" name="phoneNumber">
+                    </div>
+                    <div class="form-row">
+                        <label for="Address">Address:</label>
+                        <input type="text" id="Address" name="Address">
+                    </div>
 
-                <button type="submit">Update Profile</button>
-            </form>
-        </section>
+                    <button type="submit">Update Profile</button>
+                </form>
+            </section>
 
 
-        <section id="logout_page">
-            <h2>Log Out</h2>
+            <section id="logout_page">
+                <h2>Log Out</h2>
 
-            <form action="/log_out" method="post">
-                <label id="logout">Are you sure you want to log out?</label>
-                <button type="submit">Yes</button>
-                <button type="submit">No</button>
-            </form>
-        </section>
+                <form action="/log_out" method="post">
+                    <label id="logout">Are you sure you want to log out?</label>
+                    <button type="submit">Yes</button>
+                    <button type="submit">No</button>
+                </form>
+            </section>
+        </div>
     </div>
 </body>
 
