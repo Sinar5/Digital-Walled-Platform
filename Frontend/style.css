@@ -345,3 +345,12 @@ section table td {
     padding-top: 2vw;
     margin-left: 0;
 }
+
+#overlay i{
+    position: absolute;
+    top: 2vw;
+    right: 2vw;
+    font-size: 3vw;
+    color: var(--main_color);
+    cursor: pointer;
+}
