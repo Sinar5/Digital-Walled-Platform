@@ -1,8 +1,11 @@
 <?php 
-$host = "localhost";         
-$username = "your_username"; 
-$password = "your_password"; 
-$database = "DigitalWallet";
+error_reporting(0);
+session_start();
+
+$host = "localhost";
+$username = "root";
+$password = "";
+$database = "digitalwallet";
 
 $conn = new mysqli($host, $username, $password, $database);
 

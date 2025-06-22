@@ -65,7 +65,7 @@ section form select {
     color: var(--main_color);
     z-index: 1000;
     width: 35vw;
-    height: 25vw;
+    height: 27vw;
     margin-top: 10vw;
     padding: 2vw;
     z-index: 1000;
@@ -77,7 +77,7 @@ section form select {
 }
 
 #register_page {
-    height: 35vw;
+    height: 40vw;
     margin-top: 3vw;
 }
 
@@ -87,7 +87,6 @@ section form select {
     color: var(--secondary_color);
 
 }
-
 
 section i {
     position: absolute;
