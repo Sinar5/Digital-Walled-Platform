@@ -43,7 +43,7 @@ h2 {
 }
 #main_page {
     width: 100%;
-    height: 100vh;
+    height: 61vh;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -259,4 +259,16 @@ section button {
     margin: 1vw;
     cursor: pointer;
     border: none;
+}
+
+#transaction_page, #transaction_history , #profile_page {
+    width: 100vw;
+    height: 50vw;
+    padding: 2vw 4vw;
+    margin-top: 10vw;
+    border: 1px solid var(--main_color);
+    background-color: var(--secondary_color);
+    color: var(--main_color);
+    z-index: 1000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
