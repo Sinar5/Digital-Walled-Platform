@@ -1,17 +1,18 @@
 <?php 
-error_reporting(0);
-session_start();
 
-$host = "localhost";
+$servername = "localhost";
 $username = "root";
 $password = "";
-$database = "digitalwallet";
+$dbname = "DigitalWallet";
 
-$conn = new mysqli($host, $username, $password, $database);
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("Connection failed: ". $conn->connect_error);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
+echo "Connected successfully!";
 
 function Create_profile($conn) {
     $name = $_POST['name'];
