@@ -11,32 +11,13 @@
 </head>
 
 <body>
-    <section id="nav_bar">
-        <div id="logo" onclick="toggleSettings()">
-            <div id="first_slach"></div>
-            <div id="second_slach"></div>
-            <div id="third_slach"></div>
-        </div>
-
-        <h1>${username}</h1>
-        <div id="balance_display">
-            <p id="balance_label" >Balance:</p><br><br>
-            <p id="balance_amount">${Balance}</p>
-    </section>
-
+    <div class="container">
     <section id="welcome_page" style="display: none;">
         <h1>Welcome to the Digital Wallet Platform</h1>
         <p>Your one-stop solution for managing digital transactions securely and efficiently.</p>
         <button onclick= "openSection('login_page')">Login</button>
         <button onclick= "openSection('register_page')">Register</button>
         
-    </section>
-
-    <section id="settings_page">
-        <h2>Settings</h2> 
-        <button onclick="openSection('update_profile')">Update Profile</button>
-        <button onclick="openSection('logout_page')">Log Out</button>
-
     </section>
 
     <section id="login_page" style="display:none;">
@@ -75,9 +56,35 @@
             <button type="submit">Register</button>
         </form>
         <p>Already have an account? <button onclick="openSection('login_page')">Login here</button></p>
-
     </section>
-    <section id="transaction_page" style="display:none;">
+
+    <section id="main_page">
+        <section id="nav_bar">
+            <div id="logo">
+                <i class='bxr  bx-cog' onclick="openSection('settings_page')"></i>
+            </div>
+            
+            <h1>${username}</h1>
+            <div id="balance_display">
+                <p id="balance_label" >Balance:</p><br><br>
+                <p id="balance_amount">${Balance}</p>
+            </div>
+        </section>
+
+        <section id="main_content">
+            <div id="transaction">
+                <i class='bxr  bx-paper-plane' onclick="openSection('transaction_page')"></i>
+            </div>
+            <div id="history">
+                <i class='bxr  bx-history'onclick="openSection('transaction_history_page')"></i>
+            </div>
+            <div id="profile">
+                <i class='bxr  bx-user' onclick="openSection('profile_page')"></i>
+            </div>
+        </section>
+    </section>
+
+    <section id="transaction_page" >
         <h2>Transactions</h2>
         <form action="/transaction" method="post">
             <label for="amount">Amount:</label>
@@ -93,7 +100,8 @@
         </form>
     
     </section>
-    <section id="transaction_history_page" style="display:none;">
+
+    <section id="transaction_history_page" >
         <h2>Transaction History</h2>
         <table>
             <thead>
@@ -111,7 +119,8 @@
         </table>
         <button onclick="openSection('transaction_page')">Make a new transaction</button>
     </section>
-    <section id="profile_page" style="display:none;">
+
+    <section id="profile_page" >
         <h2>Your Profile</h2>
         <p>
             Username: <span id="profile_username"> ${username}</span><br>
@@ -122,8 +131,15 @@
         </p>
                 
     </section>
+ 
+    <section id="settings_page">
+        <h2>Settings</h2> 
+        <button onclick="openSection('update_profile')">Update Profile</button>
+        <button onclick="openSection('logout_page')">Log Out</button>
 
-    <section id="update_profile" style="display:none;">
+    </section>
+
+    <section id="update_profile" >
         <h2>Update Profile</h2>
         <form action="/update_profile" method="post">
             <div class="form-row">
@@ -144,13 +160,15 @@
     </section>
 
 
-    <section id="logout_page" style="display:none;">
+    <section id="logout_page" >
         <h2>Log Out</h2>
+
         <form action="/log_out" method="post">
             <label id="logout">Are you sure you want to log out?</label>
             <button type="submit">Yes</button>
             <button type="submit">No</button>
         </form>
     </section>
+    </div>
 </body>
 </html>
