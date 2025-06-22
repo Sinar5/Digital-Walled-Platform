@@ -50,6 +50,11 @@ h3{
     margin-left: -1vw;
 }
 
+#update_profile h3,
+#logout_page h3{
+    color:var(--main_color);
+}
+
 #logo i{
     margin-left: 92vw;
     margin-top: 2vw;
