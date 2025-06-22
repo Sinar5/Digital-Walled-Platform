@@ -13,10 +13,10 @@
     <div id="nav_bar">
         <nav>
             <ul>
-                <li><a href="#transaction_page">Transactions</a></li>
-                <li><a href="#transaction_history_page">Transaction History</a></li>
-                <li><a href="#profile_page">Profile</a></li>
-                <li><a href="#settings_page">Settings</a></li>
+                <li><button onclick=" openSection('transaction_page')">Transactions</button></li>
+                <li><button onclick=" openSection('transaction_history_page')">Transaction History</button></li>
+                <li><button onclick=" openSection('profile_page')">Profile</button></li>
+                <li><button onclick=" openSection('settings_page')">Settings</button></li>
             </ul>
         </nav>
     </div>
@@ -24,8 +24,8 @@
     <section id="welcome_page">
         <h1>Welcome to the Digital Wallet Platform</h1>
         <p>Your one-stop solution for managing digital transactions securely and efficiently.</p>
-        <button onclick= "LoginPage()">Login</button>
-        <button onclick= "RegisterPage()">Register</button>
+        <button onclick= "openSection('login_page')">Login</button>
+        <button onclick= "openSection('register_page')">Register</button>
         
     </section>
 
@@ -40,7 +40,7 @@
             <br>
             <button type="submit">Login</button>
         </form>
-        <p>Don't have an account? <button onclick="login_register()">Register here</button></p>
+        <p>Don't have an account? <button onclick="openSection('register_page')">Register here</button></p>
 
     </section>
 
@@ -64,7 +64,7 @@
             <br>
             <button type="submit">Register</button>
         </form>
-        <p>Already have an account? <button onclick="login_register()">Login here</button></p>
+        <p>Already have an account? <button onclick="openSection('login_page')">Login here</button></p>
 
     </section>
     <section id="transaction_page" style="display:none;">
@@ -99,27 +99,30 @@
                 <!-- Transaction history will be populated here -->
             </tbody>
         </table>
-        <button onclick="location.href='#transaction_page'">Make a new transaction</button>
+        <button onclick="openSection('transaction_page')">Make a new transaction</button>
     </section>
     <section id="profile_page" style="display:none;">
         <h2>Your Profile</h2>
-        <pre>
-            Username: <span id="profile_username"></span>
-            Email: <span id="profile_email"></span>
-            Phone Number: <span id="profile_phone"></span>
-            Address: <span id="profile_address"></span>
-            Balance: <span id="profile_balance"></span>
-        </pre>
-        <button onclick="location.href='#update_profile'">Update Profile</button>        
+        <p>
+            Username: <span id="profile_username"> ${username}</span><br>
+            Email: <span id="profile_email">${email}</span><br>
+            Balance: <span id="profile_balance">${Balance}</span><br>
+            Phone Number: <span id="profile_phone">${phoneNumber}</span><br>
+            Address: <span id="profile_address">${Address}</span><br>
+        </p>
+        <button onclick="openSection('update_profile')">Update Profile</button>        
     </section>
 
     <section id="update_profile" style="display:none;">
         <form action="/update_profile" method="post">
             <label for="profile_username">Username:</label>
-            <input type="text" id="profile_username" name="profile_username" required>
+            <input type="text" id="profile_username" name="profile_username">
             <br>
-            <label for="profile_email">Email:</label>
-            <input type="email" id="profile_email" name="profile_email" required>
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" id="phoneNumber" name="phoneNumber">
+            <br>
+            <label for="Address">Address:</label>
+            <input type="text" id="Address" name="Address">
             <br>
             <button type="submit">Update Profile</button>
         </form>

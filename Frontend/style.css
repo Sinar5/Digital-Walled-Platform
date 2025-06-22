@@ -51,7 +51,7 @@ section {
     padding: 2vw;
     background-color: var(--secondary_color);
     color: var(--main_color);
-    width: 30%; 
+    width: 40vw; 
     border-radius:  20%  0 20% 0;
     position: relative;
     text-align: center;
@@ -59,22 +59,30 @@ section {
     
 
 section form input, section form select {
-    box-sizing: border-box;
+    
     padding: 0.416vw;
     margin-bottom: 1vw;
     border: 1px solid var(--secondary_color);
     border-radius: 4px;
     background-color: var(--main_color);
 }
-        
+
 section button {
     padding: 0.52vw 0.78vw;
     background-color: var(--main_color);
     color: var(--secondary_color);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: 0.5vw;
     margin: 1vw; 
+    cursor: pointer;
+    border: none;
+}
+
+#nav_bar button {
+    background-color: var(--secondary_color);
+    color: var(--main_color);
+    font-size: medium;
+    cursor: pointer;
+    border: none;
 }
     
 section table {
@@ -86,14 +94,7 @@ section table th, section table td {
     border: 1px solid var(--secondary_color);
     color: var(--secondary_color);
     padding: 0.416vw;
-}
-        
-section table th {
     background-color: var(--main_color);
     text-align: left;
-}
-        
-section table tr:nth-child(even) {
-    background-color: var(--main_color);
 }
 
