@@ -45,3 +45,67 @@ section form input ,section form select {
     background-color: var(--main_color);
     color: var(--secondary_color);
 }
+
+
+#login_page, #register_page {
+    position:absolute;
+    top:0;
+    left: 32.5vw;
+    border: 1px solid var(--main_color);
+    border-radius: 5vw;
+    background-color: var(--secondary_color);
+    color: var(--main_color);
+    z-index: 1000;
+    width: 35vw;
+    height:25vw;
+    margin-top: 10vw;
+    padding: 2vw;
+    z-index:1000;
+    display:none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#register_page {
+    height:35vw;
+    margin-top:3vw;
+}
+
+#login_page button, #register_page button {
+    background-color: var(--main_color);
+    color: var(--secondary_color);
+
+}
+
+
+section i{
+    position: absolute;
+    top: 2vw;
+    right: 2vw;
+    font-size: 3vw;
+    color: var(--main_color);
+    cursor: pointer;
+}
+
+#register_page label, #login_page label {
+    display: inline-block;
+    width: 8vw;
+    text-align: left;
+    font-size: 1.2vw;
+    margin-left:1.2vw;
+}
+
+#register_page input , #login_page input {
+    width: 18vw;
+    color: var(--secondary_color);
+}
+
+.form-row {
+
+    display: flex;
+    align-items: center;
+    margin-bottom: 1vw;
+    justify-content: flex-start;
+}
