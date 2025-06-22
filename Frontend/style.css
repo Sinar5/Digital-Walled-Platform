@@ -56,6 +56,27 @@ section {
     position: relative;
     text-align: center;
 }
+
+#settings_page {
+    position: absolute;
+    top: 50px; 
+    right: 10px; 
+    width: 250px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--secondary_color);
+    color: var(--main_color);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    display: none;
+    z-index: 1000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#settings_page.show {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+}
     
 
 section form input, section form select {
