@@ -8,7 +8,7 @@ body{
     display:flex;
     height: 100vh;
     width:100vw;
-    height:100vw;
+    height:100%;
     overflow: hidden;
     font-family: Arial, sans-serif;
     background-color: var(--main_color);
@@ -23,8 +23,9 @@ body{
     top: 0;
     margin: 0 ;
     width: 100vw;
-    height: 10vw; 
-    border-radius: 0.5vw;
+    height: 17vw; 
+    border-radius: 0 0 10vw 10vw;
+    border: 1px solid var(--main_color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,12 +58,17 @@ body{
     font-size: 1.7vw;
     position: fixed;
     padding:1vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border: 1px solid var(--main_color);
     background-color: var(--secondary_color);
     border-radius: 50%;
+}
+#balance_label{
+    font-size: 1.5vw;
+
+}
+#balance_amount{
+    font-size: 2vw;
+    margin-top: -2vw;
 }
 
 h1{
@@ -72,7 +78,38 @@ h1{
 
 section {
     margin-top:2vw; 
-    padding: 3vw;
     background-color: var(--secondary_color);
     color: var(--main_color);
 }
+
+#settings_page {
+    width: 25vw;
+    height: 20vw;
+    padding: 2vw;
+    margin-top: 10vw;
+    border: 1px solid var(--main_color);
+    border-radius: 5vw;
+    background-color: var(--secondary_color);
+    color: var(--main_color);
+    display: none;
+    z-index: 1000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#settings_page.show {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+#settings_page button{
+    display: block;
+    width:21vw;
+    height:3vw;
+    background-color: var(--main_color);
+    color: var(--secondary_color);
+    border:none;
+    border-radius: 0.5vw;
+    margin: 3vw 2vw 0 2vw;
+}
+

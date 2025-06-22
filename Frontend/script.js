@@ -1,9 +1,7 @@
 function openSection(sectionId) {
 const allSections = document.querySelectorAll("section");
 allSections.forEach(section => {
-    if (section.id!== "settings_page") {
       section.style.display = "none";
-}
 });
 
 let section = document.getElementById(sectionId);

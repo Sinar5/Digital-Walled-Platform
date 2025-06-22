@@ -20,11 +20,11 @@
 
         <h1>${username}</h1>
         <div id="balance_display">
-            <span id="balance_label">Balance:</span><br>
-            <span id="balance_amount">${Balance}</span>
+            <p id="balance_label" >Balance:</p><br><br>
+            <p id="balance_amount">${Balance}</p>
     </section>
 
-    <section id="welcome_page">
+    <section id="welcome_page" style="display: none;">
         <h1>Welcome to the Digital Wallet Platform</h1>
         <p>Your one-stop solution for managing digital transactions securely and efficiently.</p>
         <button onclick= "openSection('login_page')">Login</button>
@@ -35,7 +35,7 @@
     <section id="settings_page">
         <h2>Settings</h2> 
         <button onclick="openSection('update_profile')">Update Profile</button>
-        <button onclick=" openSection('transaction_history_page')">History</button>
+        <button onclick="openSection('logout_page')">Log Out</button>
 
     </section>
 
@@ -139,8 +139,6 @@
         </form>
     </section>
 
-
-    <section id="main_page" style="display:none;">
 
     </section>
 </body>
