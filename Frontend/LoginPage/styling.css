@@ -129,10 +129,9 @@ section i {
     text-align: center;
 }
 .Circle div{
-    height: 46.3vw;
+    height: 100vh;
     width: 25vw;
     color: var(--main_color);
-    padding: 1vw;
     text-align: center;
     border: 1px solid var(--main_color);
     top: 0;
